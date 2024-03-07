@@ -24,7 +24,7 @@ void setup() {
 
 void loop() {
   int sensorReading = analogRead(A0);
-  int motorSpeed = map(sensorReading, 0, 1023, 0, 1000)*0.5; // Adjust the range as needed
+  int motorSpeed = map(sensorReading, 0, 1023, 0, 1000)*0.5; // Adjust the range as needed, the multiplier at the end determines the rotational speed range of the motor.
 
   int sensorReading1 = analogRead(A1);
   int motorSpeed1 = map(sensorReading1, 0, 1023, 0, 1000)*0.5; // Adjust the range as needed
@@ -33,7 +33,7 @@ void loop() {
   myStepper.setSpeed(-motorSpeed);
   myStepper1.setSpeed(-motorSpeed1);
 
-  // Move the stepper motors a small amount
+  // Move the stepper motors
   myStepper.runSpeed();
   myStepper1.runSpeed();
 }
